@@ -8,6 +8,8 @@ RUN apk add --no-cache gettext
 
 COPY auth.conf auth.htpasswd launch.sh ./
 
+RUN mkdir /app && mkdir /app/static
+
 # make sure root login is disabled
 RUN sed -i -e 's/^root::/root:!:/' /etc/shadow
 
